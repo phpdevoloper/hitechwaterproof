@@ -1,421 +1,780 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeakCare Waterproofing - Professional Water Solutions</title>
-    <meta name="description" content="Professional waterproofing solutions in Chennai. Terrace, roof, wall and bathroom waterproofing with 10 year warranty.">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Ionicons for modern icons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Hitech</title>
+    <meta name="description" content="Modern waterproofing services landing page with pricing, calculator, process flow, and contact form.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        floatSlow: {
+                            "0%, 100%": { transform: "translateY(0px) translateX(0px) scale(1)" },
+                            "50%": { transform: "translateY(-18px) translateX(10px) scale(1.03)" }
+                        },
+                        floatSoft: {
+                            "0%, 100%": { transform: "translateY(0px) translateX(0px)" },
+                            "50%": { transform: "translateY(-12px) translateX(-12px)" }
+                        },
+                        waterDrift: {
+                            "0%, 100%": { transform: "translate(0, 0) rotate(0deg)" },
+                            "25%": { transform: "translate(14px, -20px) rotate(4deg)" },
+                            "50%": { transform: "translate(-6px, -28px) rotate(-2deg)" },
+                            "75%": { transform: "translate(-16px, -8px) rotate(3deg)" }
+                        },
+                        waterDriftAlt: {
+                            "0%, 100%": { transform: "translate(0, 0) rotate(0deg)" },
+                            "33%": { transform: "translate(-12px, -16px) rotate(-5deg)" },
+                            "66%": { transform: "translate(10px, -22px) rotate(4deg)" }
+                        },
+                        dropletBob: {
+                            "0%, 100%": { transform: "translateY(0) scale(1)", opacity: "0.55" },
+                            "50%": { transform: "translateY(-28px) scale(1.08)", opacity: "0.9" }
+                        },
+                        waveGentle: {
+                            "0%, 100%": { transform: "translateX(0)" },
+                            "50%": { transform: "translateX(-24px)" }
+                        }
+                    },
+                    animation: {
+                        "float-slow": "floatSlow 8s ease-in-out infinite",
+                        "float-soft": "floatSoft 11s ease-in-out infinite",
+                        "water-drift": "waterDrift 14s ease-in-out infinite",
+                        "water-drift-alt": "waterDriftAlt 12s ease-in-out infinite",
+                        "droplet-bob": "dropletBob 5s ease-in-out infinite",
+                        "wave-gentle": "waveGentle 9s ease-in-out infinite"
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="enhancements.css">
 </head>
-<body>
-
-    <!-- Navigation -->
-    <header id="navbar">
-        <div class="container nav-container">
-            <a href="#hero" class="logo">
-                <ion-icon name="water"></ion-icon>
-                LeakCare<span>.</span>
+<body class="bg-slate-50 text-slate-800 antialiased">
+    <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 shadow-sm backdrop-blur-md supports-[backdrop-filter]:bg-white/80">
+        <div class="mx-auto flex min-h-[200px] max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+            <!-- Brand: left -->
+            <a href="#home" class="flex min-w-0 shrink-0 items-center">
+                <img
+                    src="output-onlinepngtools.png"
+                    alt="Hitech"
+                    class="h-[200px] w-[200px] shrink-0 object-contain object-left"
+                    width="200"
+                    height="200"
+                    decoding="async"
+                />
             </a>
-            
-            <button class="mobile-toggle" aria-label="Toggle menu">
-                <ion-icon name="menu-outline"></ion-icon>
-            </button>
 
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#process">Process</a>
-                <a href="#pricing">Packages</a>
-                <a href="#calculator">Calculator</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact" class="btn btn-outline">Contact Us</a>
-                <a href="https://wa.me/918870992280" class="btn btn-primary nav-cta">
-                    <ion-icon name="logo-whatsapp"></ion-icon> WhatsApp Us
-                </a>
-            </nav>
+            <!-- Nav + CTA: right (not centered — avoids huge gap after logo) -->
+            <div class="flex shrink-0 items-center gap-3 sm:gap-4">
+                <nav class="hidden items-center gap-4 md:flex lg:gap-6" aria-label="Primary navigation">
+                    <a href="#home" class="whitespace-nowrap text-sm font-medium text-slate-700 transition hover:text-cyan-700">Home</a>
+                    <a href="#services" class="whitespace-nowrap text-sm font-medium text-slate-700 transition hover:text-cyan-700">Services</a>
+                    <a href="#before-after" class="whitespace-nowrap text-sm font-medium text-slate-700 transition hover:text-cyan-700">Gallery</a>
+                    <a href="#pricing" class="whitespace-nowrap text-sm font-medium text-slate-700 transition hover:text-cyan-700">Pricing</a>
+                    <a href="#contact" class="whitespace-nowrap text-sm font-medium text-slate-700 transition hover:text-cyan-700">Contact</a>
+                    <a href="#contact" class="liquid-btn whitespace-nowrap rounded-xl px-4 py-2 text-sm font-semibold text-white shadow-md shadow-cyan-200">Get Quote</a>
+                </nav>
+                <button
+                    id="menuToggle"
+                    type="button"
+                    class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-700 transition hover:border-cyan-300 hover:bg-cyan-50/80 hover:text-cyan-800 md:hidden"
+                    aria-label="Toggle menu"
+                    aria-expanded="false"
+                    aria-controls="mobileMenu"
+                >
+                    <i data-lucide="menu" class="h-5 w-5"></i>
+                </button>
+            </div>
         </div>
+
+        <nav id="mobileMenu" class="hidden border-t border-slate-200 bg-white px-4 py-4 shadow-inner md:hidden" aria-label="Mobile navigation">
+            <div class="flex flex-col gap-1">
+                <a href="#home" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100">Home</a>
+                <a href="#services" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100">Services</a>
+                <a href="#before-after" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100">Gallery</a>
+                <a href="#pricing" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100">Pricing</a>
+                <a href="#contact" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100">Contact</a>
+                <a href="#contact" class="liquid-btn mt-2 rounded-xl px-4 py-3 text-center text-sm font-semibold text-white">Get Quote</a>
+            </div>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <!-- We use the generated image path here if it is available or via CSS -->
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <span class="badge">Protecting homes since 2010</span>
-            <h1>Professional Waterproofing Solutions for Terrace, Roof & Walls</h1>
-            <p>Protect your home with long-lasting, warranty-backed solutions. Advanced techniques applied by trained experts.</p>
-            <div class="hero-actions">
-                <a href="https://wa.me/918870992280" class="btn btn-primary btn-large">
-                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon> WhatsApp Us Now
-                </a>
-                <a href="#services" class="btn btn-secondary btn-large">
-                    <ion-icon name="construct-outline"></ion-icon> Our Services
-                </a>
+    <main>
+        <section id="home" class="relative overflow-hidden bg-gradient-to-br from-cyan-600 via-sky-500 to-teal-400">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.25),_transparent_40%)]"></div>
+            <!-- Water floating layers (decorative) -->
+            <div id="hero-bg-parallax" class="pointer-events-none absolute inset-0 z-0 overflow-hidden" data-parallax-bg aria-hidden="true">
+                <div class="absolute -left-10 top-20 h-40 w-40 rounded-full bg-cyan-200/35 blur-2xl animate-water-drift"></div>
+                <div class="absolute right-4 top-24 h-32 w-32 rounded-full bg-white/25 blur-2xl animate-water-drift-alt [animation-delay:1.5s]"></div>
+                <div class="absolute bottom-16 left-1/4 h-36 w-36 rounded-full bg-teal-200/30 blur-3xl animate-float-slow"></div>
+                <div class="absolute right-1/4 top-1/3 h-28 w-28 rounded-full bg-sky-200/25 blur-2xl animate-float-soft [animation-delay:2s]"></div>
+                <div class="absolute left-1/2 top-8 h-20 w-20 -translate-x-1/2 rounded-full bg-cyan-100/20 blur-xl animate-water-drift [animation-delay:0.8s]"></div>
+                <!-- Small droplet shapes -->
+                <div class="absolute left-[12%] top-[30%] h-3 w-3 rounded-full bg-white/50 shadow-sm animate-droplet-bob"></div>
+                <div class="absolute left-[22%] top-[55%] h-2 w-2 rounded-full bg-white/40 animate-droplet-bob [animation-delay:0.7s]"></div>
+                <div class="absolute right-[18%] top-[22%] h-2.5 w-2.5 rounded-full bg-cyan-100/60 animate-droplet-bob [animation-delay:1.2s]"></div>
+                <div class="absolute right-[28%] top-[48%] h-2 w-2 rounded-full bg-white/45 animate-droplet-bob [animation-delay:2.4s]"></div>
+                <div class="absolute bottom-[32%] left-[40%] h-2 w-2 rounded-full bg-white/35 animate-droplet-bob [animation-delay:3s]"></div>
+                <!-- Teardrop SVGs -->
+                <svg class="absolute left-[8%] top-[42%] h-8 w-8 text-white/30 animate-water-drift-alt [animation-delay:0.3s]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2C12 2 6 10 6 15a6 6 0 1 0 12 0c0-5-6-13-6-13z" />
+                </svg>
+                <svg class="absolute right-[12%] bottom-[28%] h-10 w-10 text-white/25 animate-water-drift [animation-delay:2s]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2C12 2 6 10 6 15a6 6 0 1 0 12 0c0-5-6-13-6-13z" />
+                </svg>
+                <svg class="absolute right-[35%] top-[18%] h-6 w-6 text-cyan-100/40 animate-float-soft" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2C12 2 6 10 6 15a6 6 0 1 0 12 0c0-5-6-13-6-13z" />
+                </svg>
             </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <h3>500+</h3>
-                    <p>Happy Clients</p>
+            <div id="bubble-layer" class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true"></div>
+            <!-- Multi-layer animated waves -->
+            <div class="hero-waves-stack" aria-hidden="true">
+                <div class="hero-wave-track hero-wave-track--slow">
+                    <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M0 90c150-22 300 22 450 0s300-28 450-4 300 20 450 2 300-26 450-2v32H0V90z"/></svg>
+                    <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M0 90c150-22 300 22 450 0s300-28 450-4 300 20 450 2 300-26 450-2v32H0V90z"/></svg>
                 </div>
-                <div class="stat-item">
-                    <h3>10 Yr</h3>
-                    <p>Written Warranty</p>
+                <div class="hero-wave-track hero-wave-track--mid">
+                    <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M0 75c180 18 360-18 540 0s360 22 540-6 360-14 540 8 360 16 540-10v37H0V75z"/></svg>
+                    <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M0 75c180 18 360-18 540 0s360 22 540-6 360-14 540 8 360 16 540-10v37H0V75z"/></svg>
                 </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Leakproof Guarantee</p>
+                <div class="hero-wave-track hero-wave-track--fast">
+                    <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M0 58c200 20 400-20 600 0s400 24 600-8 400-12 600 12 400 8 600-4v44H0V58z"/></svg>
+                    <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M0 58c200 20 400-20 600 0s400 24 600-8 400-12 600 12 400 8 600-4v44H0V58z"/></svg>
                 </div>
             </div>
-        </div>
-    </section>
+            <div id="hero-foreground" class="relative z-10 mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:items-center md:py-24 lg:px-8">
+                <div>
+                    <p class="inline-flex rounded-full border border-white/30 bg-white/20 px-4 py-1 text-sm font-medium text-white backdrop-blur">Certified Experts • Warranty Backed</p>
+                    <h1 class="mt-5 text-4xl font-extrabold leading-tight text-white sm:text-5xl">Stop Water Leakage Permanently</h1>
+                    <p class="mt-4 max-w-xl text-base text-cyan-50 sm:text-lg">Protect your home with advanced waterproofing systems designed for roofs, terraces, basements, and wet areas.</p>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="#contact" class="liquid-btn liquid-btn--ghost rounded-xl px-5 py-3 text-sm font-semibold text-cyan-700 shadow-lg shadow-cyan-700/20">Book Free Inspection</a>
+                        <a href="#services" class="liquid-btn liquid-btn--outline rounded-xl border border-white/60 px-5 py-3 text-sm font-semibold text-white backdrop-blur">Explore Services</a>
+                    </div>
+                </div>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container about-container">
-            <div class="about-text">
-                <h2 class="section-title">Advanced <span>Waterproofing</span> Solutions</h2>
-                <p>We are experts in advanced waterproofing solutions. Our professional team fixes terrace leaks, wall cracks, and water seepage using modern materials and long-lasting techniques.</p>
-                <p>With years of experience and hundreds of successful projects, we deliver permanent protection for your property across Tamil Nadu.</p>
-                
-                <ul class="feature-list">
-                    <li><ion-icon name="checkmark-circle"></ion-icon> Durable waterproofing that stands the test of time.</li>
-                    <li><ion-icon name="checkmark-circle"></ion-icon> Top-grade, tested chemicals and materials.</li>
-                    <li><ion-icon name="checkmark-circle"></ion-icon> Up to 10 years written warranty on our work.</li>
+                <aside class="rounded-2xl border border-white/30 bg-white/15 p-5 text-white shadow-xl backdrop-blur-xl sm:p-6">
+                    <h2 class="text-lg font-semibold">Trusted Waterproofing Partner</h2>
+                    <p class="mt-2 text-sm text-cyan-50">Rapid inspection, transparent pricing, and certified materials for long-term protection.</p>
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <article class="rounded-xl border border-white/30 bg-white/20 p-4">
+                            <p class="text-2xl font-bold">1,200+</p>
+                            <p class="text-xs text-cyan-100">Projects Completed</p>
+                        </article>
+                        <article class="rounded-xl border border-white/30 bg-white/20 p-4">
+                            <p class="text-2xl font-bold">900+</p>
+                            <p class="text-xs text-cyan-100">Satisfied Clients</p>
+                        </article>
+                        <article class="rounded-xl border border-white/30 bg-white/20 p-4">
+                            <p class="text-2xl font-bold">12+</p>
+                            <p class="text-xs text-cyan-100">Years Experience</p>
+                        </article>
+                        <article class="rounded-xl border border-white/30 bg-white/20 p-4">
+                            <p class="text-2xl font-bold">4.9</p>
+                            <p class="text-xs text-cyan-100">Average Rating</p>
+                        </article>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="services" class="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center">
+                <p class="text-sm font-semibold uppercase tracking-wider text-cyan-600">Services</p>
+                <h2 class="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Advanced Waterproofing Solutions</h2>
+            </div>
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <i data-lucide="home" class="text-cyan-600"></i>
+                    <h3 class="mt-4 text-xl font-semibold text-slate-900">Terrace Waterproofing</h3>
+                    <p class="mt-2 text-sm text-slate-600">Multi-layer membrane system for complete terrace protection in all seasons.</p>
+                </article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <i data-lucide="building-2" class="text-cyan-600"></i>
+                    <h3 class="mt-4 text-xl font-semibold text-slate-900">Basement Seepage Control</h3>
+                    <p class="mt-2 text-sm text-slate-600">High-pressure grouting and moisture barriers to stop wall seepage.</p>
+                </article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <i data-lucide="bath" class="text-cyan-600"></i>
+                    <h3 class="mt-4 text-xl font-semibold text-slate-900">Bathroom Leak Repair</h3>
+                    <p class="mt-2 text-sm text-slate-600">Fast non-invasive treatment for bathroom floors, joints, and pipe zones.</p>
+                </article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <i data-lucide="layers" class="text-cyan-600"></i>
+                    <h3 class="mt-4 text-xl font-semibold text-slate-900">Roof Coating Systems</h3>
+                    <p class="mt-2 text-sm text-slate-600">UV-resistant coatings that reduce cracking and waterproof your slab.</p>
+                </article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <i data-lucide="wrench" class="text-cyan-600"></i>
+                    <h3 class="mt-4 text-xl font-semibold text-slate-900">Crack Injection</h3>
+                    <p class="mt-2 text-sm text-slate-600">Polyurethane and epoxy crack injection to permanently seal leak paths.</p>
+                </article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <i data-lucide="shield-check" class="text-cyan-600"></i>
+                    <h3 class="mt-4 text-xl font-semibold text-slate-900">Annual Protection Plans</h3>
+                    <p class="mt-2 text-sm text-slate-600">Scheduled inspections and preventive treatment to avoid future leakage.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="bg-white py-16">
+            <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-10 text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">Benefits You Get</h2>
+                </div>
+                <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                        <i data-lucide="clock-3" class="text-cyan-600"></i>
+                        <h3 class="mt-3 font-semibold text-slate-900">Fast Turnaround</h3>
+                        <p class="mt-2 text-sm text-slate-600">Most projects are completed in 2-4 days with quality checks.</p>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                        <i data-lucide="badge-check" class="text-cyan-600"></i>
+                        <h3 class="mt-3 font-semibold text-slate-900">Certified Materials</h3>
+                        <p class="mt-2 text-sm text-slate-600">Only tested and approved chemicals are used on every project.</p>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                        <i data-lucide="file-text" class="text-cyan-600"></i>
+                        <h3 class="mt-3 font-semibold text-slate-900">Written Warranty</h3>
+                        <p class="mt-2 text-sm text-slate-600">Clear post-service support terms and documented guarantees.</p>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                        <i data-lucide="wallet-cards" class="text-cyan-600"></i>
+                        <h3 class="mt-3 font-semibold text-slate-900">Transparent Pricing</h3>
+                        <p class="mt-2 text-sm text-slate-600">No hidden costs and detailed estimate before work starts.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="before-after" class="bg-[#0a1628] py-16 text-white">
+            <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-10 text-center">
+                    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Before &amp; After <span class="text-cyan-400">Transformation</span></h2>
+                    <p class="mx-auto mt-3 max-w-2xl text-sm text-slate-400 sm:text-base">Drag the slider to see the incredible difference our waterproofing makes</p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Card 1: Terrace -->
+                    <article class="ba-card flex flex-col overflow-hidden rounded-2xl border border-slate-700/80 bg-[#0c1929] p-4 shadow-xl shadow-black/40 ring-1 ring-white/5">
+                        <div
+                            class="ba-compare-surface relative aspect-[16/10] w-full cursor-ew-resize overflow-hidden rounded-xl border border-cyan-500/20 bg-slate-900 outline-none select-none"
+                            data-ba-compare
+                            aria-label="Terrace before and after comparison"
+                        >
+                            <img
+                                class="ba-compare__img ba-compare__under pointer-events-none absolute inset-0 h-full w-full object-cover"
+                                src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
+                                alt="Terrace before waterproofing"
+                                draggable="false"
+                            />
+                            <img
+                                class="ba-compare__img ba-compare__after pointer-events-none absolute inset-0 h-full w-full object-cover will-change-[clip-path]"
+                                src="https://images.unsplash.com/photo-1599619585752-c3edb42a414c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
+                                alt="Terrace after waterproofing"
+                                draggable="false"
+                            />
+                            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/25"></div>
+                            <span class="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full bg-emerald-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg ring-1 ring-emerald-400/50 sm:text-xs">After</span>
+                            <span class="pointer-events-none absolute bottom-3 right-3 z-10 rounded-full bg-red-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg ring-1 ring-red-400/50 sm:text-xs">Before</span>
+                            <div class="ba-handle absolute inset-y-0 z-20 flex w-11 items-center justify-center" style="left: 50%">
+                                <span class="ba-handle__line pointer-events-none" aria-hidden="true"></span>
+                                <button type="button" class="ba-handle__knob pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-white text-cyan-600 shadow-lg shadow-cyan-500/40 ring-2 ring-cyan-400/40 transition hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300" aria-label="Drag to compare" tabindex="-1">
+                                    <i data-lucide="arrow-left-right" class="h-5 w-5" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-1 flex-col">
+                            <h3 class="flex items-center gap-2 text-lg font-semibold text-white">
+                                <span class="rounded-lg bg-cyan-500/15 p-1.5 text-cyan-400"><i data-lucide="home" class="h-5 w-5"></i></span>
+                                Terrace Waterproofing
+                            </h3>
+                            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-400">Complete 6-layer waterproofing system with premium coating for long-lasting terrace protection.</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="rounded-full border border-cyan-500/35 bg-cyan-950/40 px-2.5 py-0.5 text-[11px] font-medium text-cyan-200">6 Layers</span>
+                                <span class="rounded-full border border-cyan-500/35 bg-cyan-950/40 px-2.5 py-0.5 text-[11px] font-medium text-cyan-200">Premium Coating</span>
+                                <span class="rounded-full border border-emerald-500/35 bg-emerald-950/30 px-2.5 py-0.5 text-[11px] font-medium text-emerald-200">5 Year Warranty</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 2: Wall Crack -->
+                    <article class="ba-card flex flex-col overflow-hidden rounded-2xl border border-slate-700/80 bg-[#0c1929] p-4 shadow-xl shadow-black/40 ring-1 ring-white/5">
+                        <div class="ba-compare-surface relative aspect-[16/10] w-full cursor-ew-resize overflow-hidden rounded-xl border border-cyan-500/20 bg-slate-900 outline-none select-none" data-ba-compare aria-label="Wall crack before and after comparison">
+                            <img class="ba-compare__img ba-compare__under pointer-events-none absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Wall with cracks before repair" draggable="false" />
+                            <img class="ba-compare__img ba-compare__after pointer-events-none absolute inset-0 h-full w-full object-cover will-change-[clip-path]" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Wall after crack repair" draggable="false" />
+                            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/25"></div>
+                            <span class="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full bg-emerald-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg ring-1 ring-emerald-400/50 sm:text-xs">After</span>
+                            <span class="pointer-events-none absolute bottom-3 right-3 z-10 rounded-full bg-red-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg ring-1 ring-red-400/50 sm:text-xs">Before</span>
+                            <div class="ba-handle absolute inset-y-0 z-20 flex w-11 items-center justify-center" style="left: 50%">
+                                <span class="ba-handle__line pointer-events-none" aria-hidden="true"></span>
+                                <button type="button" class="ba-handle__knob pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-white text-cyan-600 shadow-lg shadow-cyan-500/40 ring-2 ring-cyan-400/40 transition hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300" aria-label="Drag to compare" tabindex="-1">
+                                    <i data-lucide="arrow-left-right" class="h-5 w-5" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-1 flex-col">
+                            <h3 class="flex items-center gap-2 text-lg font-semibold text-white">
+                                <span class="rounded-lg bg-cyan-500/15 p-1.5 text-cyan-400"><i data-lucide="wrench" class="h-5 w-5"></i></span>
+                                Wall Crack Repair
+                            </h3>
+                            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-400">Deep crack injection plus waterproof coating to stop seepage through structural cracks.</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="rounded-full border border-cyan-500/35 bg-cyan-950/40 px-2.5 py-0.5 text-[11px] font-medium text-cyan-200">Crack Fill</span>
+                                <span class="rounded-full border border-cyan-500/35 bg-cyan-950/40 px-2.5 py-0.5 text-[11px] font-medium text-cyan-200">Injection</span>
+                                <span class="rounded-full border border-cyan-500/35 bg-cyan-950/40 px-2.5 py-0.5 text-[11px] font-medium text-cyan-200">Multi-coat</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 3: Bathroom -->
+                    <article class="ba-card flex flex-col overflow-hidden rounded-2xl border border-slate-700/80 bg-[#0c1929] p-4 shadow-xl shadow-black/40 ring-1 ring-white/5">
+                        <div class="ba-compare-surface relative aspect-[16/10] w-full cursor-ew-resize overflow-hidden rounded-xl border border-cyan-500/20 bg-slate-900 outline-none select-none" data-ba-compare aria-label="Bathroom before and after comparison">
+                            <img class="ba-compare__img ba-compare__under pointer-events-none absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bathroom before epoxy treatment" draggable="false" />
+                            <img class="ba-compare__img ba-compare__after pointer-events-none absolute inset-0 h-full w-full object-cover will-change-[clip-path]" src="https://images.unsplash.com/photo-1552321554-5fefe1c9d14c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Bathroom after epoxy treatment" draggable="false" />
+                            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/25"></div>
+                            <span class="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full bg-emerald-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg ring-1 ring-emerald-400/50 sm:text-xs">After</span>
+                            <span class="pointer-events-none absolute bottom-3 right-3 z-10 rounded-full bg-red-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg ring-1 ring-red-400/50 sm:text-xs">Before</span>
+                            <div class="ba-handle absolute inset-y-0 z-20 flex w-11 items-center justify-center" style="left: 50%">
+                                <span class="ba-handle__line pointer-events-none" aria-hidden="true"></span>
+                                <button type="button" class="ba-handle__knob pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-white text-cyan-600 shadow-lg shadow-cyan-500/40 ring-2 ring-cyan-400/40 transition hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300" aria-label="Drag to compare" tabindex="-1">
+                                    <i data-lucide="arrow-left-right" class="h-5 w-5" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-1 flex-col">
+                            <h3 class="flex items-center gap-2 text-lg font-semibold text-white">
+                                <span class="rounded-lg bg-cyan-500/15 p-1.5 text-cyan-400"><i data-lucide="bath" class="h-5 w-5"></i></span>
+                                Bathroom Epoxy Treatment
+                            </h3>
+                            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-400">Epoxy tile grouting stopped bathroom seepage without removing existing tiles.</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="rounded-full border border-cyan-500/35 bg-cyan-950/40 px-2.5 py-0.5 text-[11px] font-medium text-cyan-200">Epoxy Grout</span>
+                                <span class="rounded-full border border-cyan-500/35 bg-cyan-950/40 px-2.5 py-0.5 text-[11px] font-medium text-cyan-200">Non-destructive</span>
+                                <span class="rounded-full border border-cyan-500/35 bg-cyan-950/40 px-2.5 py-0.5 text-[11px] font-medium text-cyan-200">Mold Resistant</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="bg-slate-100 py-16">
+            <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-10 text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">Flexible Pricing Plans</h2>
+                </div>
+                <div class="grid gap-6 lg:grid-cols-3">
+                    <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="text-xl font-semibold text-slate-900">Basic</h3>
+                        <p class="mt-2 text-3xl font-bold text-cyan-700">₹35/sq.ft</p>
+                        <ul class="mt-5 space-y-2 text-sm text-slate-600">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-600"></i> Surface cleaning</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-600"></i> Crack filler treatment</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-600"></i> 2-year warranty</li>
+                        </ul>
+                        <a href="#contact" class="liquid-outline-btn mt-6 inline-block w-full rounded-xl border border-cyan-600 px-4 py-2 text-center text-sm font-semibold text-cyan-800">Choose Basic</a>
+                    </article>
+
+                    <article class="relative rounded-2xl border-2 border-cyan-500 bg-white p-6 shadow-lg shadow-cyan-100">
+                        <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-cyan-600 px-3 py-1 text-xs font-semibold text-white">Most Popular</span>
+                        <h3 class="text-xl font-semibold text-slate-900">Standard</h3>
+                        <p class="mt-2 text-3xl font-bold text-cyan-700">₹48/sq.ft</p>
+                        <ul class="mt-5 space-y-2 text-sm text-slate-600">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-600"></i> Advanced sealing system</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-600"></i> 3-layer protective coat</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-600"></i> 5-year warranty</li>
+                        </ul>
+                        <a href="#contact" class="liquid-btn mt-6 inline-block w-full rounded-xl px-4 py-2 text-center text-sm font-semibold text-white">Choose Standard</a>
+                    </article>
+
+                    <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="text-xl font-semibold text-slate-900">Premium</h3>
+                        <p class="mt-2 text-3xl font-bold text-cyan-700">₹62/sq.ft</p>
+                        <ul class="mt-5 space-y-2 text-sm text-slate-600">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-600"></i> Full root-cause treatment</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-600"></i> Premium membrane system</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-600"></i> 10-year warranty</li>
+                        </ul>
+                        <a href="#contact" class="liquid-outline-btn mt-6 inline-block w-full rounded-xl border border-cyan-600 px-4 py-2 text-center text-sm font-semibold text-cyan-800">Choose Premium</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="calculator" class="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="grid gap-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-2 md:p-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">Cost Calculator</h2>
+                    <p class="mt-3 text-sm text-slate-600">Get an instant estimate based on service type and area coverage.</p>
+                </div>
+                <form id="calculatorForm" class="space-y-4">
+                    <div>
+                        <label for="areaInput" class="mb-2 block text-sm font-semibold text-slate-700">Area (sq.ft)</label>
+                        <input id="areaInput" type="number" min="1" placeholder="Enter area" class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100">
+                    </div>
+                    <div>
+                        <label for="typeInput" class="mb-2 block text-sm font-semibold text-slate-700">Waterproofing Type</label>
+                        <select id="typeInput" class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-100">
+                            <option value="35">Basic System</option>
+                            <option value="48">Standard System</option>
+                            <option value="62">Premium System</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="liquid-btn w-full rounded-xl px-5 py-3 text-sm font-semibold text-white">Estimate Cost</button>
+                    <p id="estimateResult" class="hidden rounded-xl bg-cyan-50 px-4 py-3 text-sm font-semibold text-cyan-800"></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="bg-white py-16">
+            <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-10 text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">Why Choose Us</h2>
+                </div>
+                <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center shadow-sm">
+                        <i data-lucide="users" class="mx-auto text-cyan-600"></i>
+                        <h3 class="mt-3 font-semibold text-slate-900">Expert Team</h3>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center shadow-sm">
+                        <i data-lucide="clipboard-check" class="mx-auto text-cyan-600"></i>
+                        <h3 class="mt-3 font-semibold text-slate-900">Site Audit First</h3>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center shadow-sm">
+                        <i data-lucide="shield" class="mx-auto text-cyan-600"></i>
+                        <h3 class="mt-3 font-semibold text-slate-900">Reliable Warranty</h3>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center shadow-sm">
+                        <i data-lucide="headset" class="mx-auto text-cyan-600"></i>
+                        <h3 class="mt-3 font-semibold text-slate-900">Post-Service Support</h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center">
+                <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">How It Works</h2>
+            </div>
+            <ol class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+                <li class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <p class="text-sm font-semibold text-cyan-600">Step 01</p>
+                    <h3 class="mt-2 text-lg font-semibold">Inspect</h3>
+                    <p class="mt-2 text-sm text-slate-600">We inspect leak sources and structural conditions.</p>
+                </li>
+                <li class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <p class="text-sm font-semibold text-cyan-600">Step 02</p>
+                    <h3 class="mt-2 text-lg font-semibold">Plan</h3>
+                    <p class="mt-2 text-sm text-slate-600">A custom treatment plan and estimate are shared.</p>
+                </li>
+                <li class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <p class="text-sm font-semibold text-cyan-600">Step 03</p>
+                    <h3 class="mt-2 text-lg font-semibold">Apply</h3>
+                    <p class="mt-2 text-sm text-slate-600">Our team applies waterproofing layers with precision.</p>
+                </li>
+                <li class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <p class="text-sm font-semibold text-cyan-600">Step 04</p>
+                    <h3 class="mt-2 text-lg font-semibold">Verify</h3>
+                    <p class="mt-2 text-sm text-slate-600">Final quality checks, report, and warranty handover.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="bg-slate-100 py-16">
+            <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-10 text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">Featured Products</h2>
+                </div>
+                <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?auto=format&fit=crop&w=600&q=80" alt="Waterproof coating product can" class="h-36 w-full rounded-xl object-cover">
+                        <h3 class="mt-3 font-semibold text-slate-900">FlexSeal Pro</h3>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=600&q=80" alt="Membrane roll waterproofing product" class="h-36 w-full rounded-xl object-cover">
+                        <h3 class="mt-3 font-semibold text-slate-900">Hydro Membrane X</h3>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=600&q=80" alt="Chemical sealant cartridge" class="h-36 w-full rounded-xl object-cover">
+                        <h3 class="mt-3 font-semibold text-slate-900">CrackLock Injection Gel</h3>
+                    </article>
+                    <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=600&q=80" alt="Protective waterproof top coat bucket" class="h-36 w-full rounded-xl object-cover">
+                        <h3 class="mt-3 font-semibold text-slate-900">TopShield UV Coat</h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <h2 class="text-3xl font-bold text-slate-900">Coverage Area</h2>
+                <p class="mt-3 text-sm text-slate-600">Serving major metro and suburban regions with same-day inspection slots.</p>
+                <div class="mt-6 flex h-56 items-center justify-center rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 text-slate-500">
+                    Map Placeholder (City-wide Coverage)
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="bg-white py-16">
+            <div class="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-10 text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">Frequently Asked Questions</h2>
+                </div>
+                <div class="space-y-3">
+                    <article class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                        <button class="faq-trigger flex w-full items-center justify-between text-left" type="button" aria-expanded="false">
+                            <span class="font-semibold text-slate-900">How long does waterproofing last?</span>
+                            <i data-lucide="chevron-down" class="faq-icon h-5 w-5 shrink-0 text-slate-600"></i>
+                        </button>
+                        <div class="faq-answer-panel">
+                            <div class="faq-answer-inner">
+                                <p class="faq-content pt-3 text-sm text-slate-600">Depending on system type and maintenance, protection can last between 5 to 10 years.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                        <button class="faq-trigger flex w-full items-center justify-between text-left" type="button" aria-expanded="false">
+                            <span class="font-semibold text-slate-900">Do you provide written warranty?</span>
+                            <i data-lucide="chevron-down" class="faq-icon h-5 w-5 shrink-0 text-slate-600"></i>
+                        </button>
+                        <div class="faq-answer-panel">
+                            <div class="faq-answer-inner">
+                                <p class="faq-content pt-3 text-sm text-slate-600">Yes, all standard and premium plans include a written service warranty.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                        <button class="faq-trigger flex w-full items-center justify-between text-left" type="button" aria-expanded="false">
+                            <span class="font-semibold text-slate-900">Can you fix existing active leakage?</span>
+                            <i data-lucide="chevron-down" class="faq-icon h-5 w-5 shrink-0 text-slate-600"></i>
+                        </button>
+                        <div class="faq-answer-panel">
+                            <div class="faq-answer-inner">
+                                <p class="faq-content pt-3 text-sm text-slate-600">Yes, we handle active leakage using injection and sealant systems before top coating.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 py-16 text-white">
+            <div class="pointer-events-none absolute -right-16 top-10 h-48 w-48 rounded-full bg-cyan-500/10 blur-3xl animate-float-soft"></div>
+            <div class="pointer-events-none absolute bottom-0 left-0 h-40 w-40 rounded-full bg-teal-500/10 blur-3xl animate-float-slow"></div>
+            <div class="relative mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
+                <div>
+                    <h2 class="text-3xl font-bold">Let&apos;s Protect Your Property</h2>
+                    <p class="mt-3 max-w-md text-sm text-slate-300">Share your issue and we will call you with a free site inspection slot.</p>
+                    <div class="mt-6 space-y-3 text-sm text-slate-200">
+                        <p class="flex items-center gap-2"><i data-lucide="phone" class="h-4 w-4"></i> +91 90000 12345</p>
+                        <p class="flex items-center gap-2">
+                            <svg
+                                class="h-4 w-4 shrink-0 text-slate-200"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                            </svg>
+                            support@aquaseal.example
+                        </p>
+                        <p class="flex items-center gap-2"><i data-lucide="map-pin" class="h-4 w-4"></i> Chennai, Bengaluru, Hyderabad</p>
+                    </div>
+                </div>
+                <form id="contactForm" class="rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="name" class="mb-2 block text-sm font-medium text-slate-100">Name</label>
+                            <input id="name" name="name" type="text" class="w-full rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm placeholder:text-slate-300 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/30" placeholder="Enter your name">
+                            <p id="nameError" class="mt-1 hidden text-xs text-rose-300"></p>
+                        </div>
+                        <div>
+                            <label for="phone" class="mb-2 block text-sm font-medium text-slate-100">Phone</label>
+                            <input id="phone" name="phone" type="tel" class="w-full rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm placeholder:text-slate-300 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/30" placeholder="10 digit mobile number">
+                            <p id="phoneError" class="mt-1 hidden text-xs text-rose-300"></p>
+                        </div>
+                        <div>
+                            <label for="message" class="mb-2 block text-sm font-medium text-slate-100">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm placeholder:text-slate-300 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/30" placeholder="Tell us about your leakage issue"></textarea>
+                            <p id="messageError" class="mt-1 hidden text-xs text-rose-300"></p>
+                        </div>
+                    </div>
+                    <button type="submit" class="liquid-btn mt-5 w-full rounded-xl px-5 py-3 text-sm font-semibold text-white">Submit Request</button>
+                    <p id="formSuccess" class="mt-3 hidden text-sm text-cyan-200">Thanks! Our team will reach out shortly.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="relative overflow-hidden border-t border-cyan-950/50 bg-[#050a15] py-16 text-slate-400">
+        <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+            <div class="absolute -left-24 top-8 h-80 w-80 rounded-full bg-cyan-500/[0.12] blur-3xl"></div>
+            <div class="absolute -right-16 bottom-0 h-96 w-96 rounded-full bg-teal-500/[0.1] blur-3xl"></div>
+            <div class="absolute left-1/3 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-sky-500/[0.06] blur-3xl"></div>
+        </div>
+
+        <div class="relative mx-auto grid w-full max-w-7xl gap-12 px-4 sm:px-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:px-8">
+            <!-- Brand -->
+            <div>
+                <a href="#home" class="inline-flex flex-col gap-2">
+                    <img
+                        src="output-onlinepngtools.png"
+                        alt="Hitech"
+                        class="h-[200px] w-[200px] object-contain object-left"
+                        width="200"
+                        height="200"
+                        decoding="async"
+                    />
+                    <span class="text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-400">Waterproofing</span>
+                </a>
+                <p class="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
+                    India&apos;s trusted waterproofing partner delivering premium leak-proof solutions with up to 10 years warranty. Protecting homes since 2010.
+                </p>
+                <div class="mt-6 flex flex-wrap gap-2">
+                    <a
+                        href="https://wa.me/919000012345"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700/80 bg-slate-900/90 text-emerald-400 transition hover:border-emerald-500/50 hover:bg-slate-800 hover:text-emerald-300"
+                        aria-label="WhatsApp"
+                    >
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 20.885 3.49"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="tel:+919000012345"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700/80 bg-slate-900/90 text-rose-400 transition hover:border-rose-500/50 hover:bg-slate-800 hover:text-rose-300"
+                        aria-label="Call us"
+                    >
+                        <i data-lucide="phone" class="h-5 w-5" aria-hidden="true"></i>
+                    </a>
+                    <a
+                        href="mailto:support@aquaseal.example"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700/80 bg-slate-900/90 text-sky-400 transition hover:border-sky-500/50 hover:bg-slate-800 hover:text-sky-300"
+                        aria-label="Email us"
+                    >
+                        <svg
+                            class="h-5 w-5 shrink-0"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                        </svg>
+                    </a>
+                    <a
+                        href="#contact"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700/80 bg-slate-900/90 text-red-400 transition hover:border-red-500/50 hover:bg-slate-800 hover:text-red-300"
+                        aria-label="Service locations"
+                    >
+                        <i data-lucide="map-pin" class="h-5 w-5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <h2 class="text-sm font-bold text-white">
+                    <span class="inline-block border-b-2 border-cyan-500 pb-2">Services</span>
+                </h2>
+                <ul class="mt-5 space-y-3 text-sm">
+                    <li><a href="#services" class="transition hover:text-cyan-300">Terrace Waterproofing</a></li>
+                    <li><a href="#services" class="transition hover:text-cyan-300">Crack Repair</a></li>
+                    <li><a href="#services" class="transition hover:text-cyan-300">Cool Coating</a></li>
+                    <li><a href="#services" class="transition hover:text-cyan-300">Bathroom Epoxy</a></li>
+                    <li><a href="#services" class="transition hover:text-cyan-300">Pool Waterproofing</a></li>
+                    <li><a href="#services" class="transition hover:text-cyan-300">Water Tank Repair</a></li>
                 </ul>
             </div>
-            <div class="about-image-wrapper">
-                <!-- Using a nice gradient placeholder card -->
-                <div class="glass-card about-card">
-                    <ion-icon name="shield-checkmark" class="large-icon"></ion-icon>
-                    <h3>The Trusted Choice</h3>
-                    <p>Rated #1 by hundreds of homeowners for reliability and transparent pricing.</p>
-                </div>
+
+            <!-- Company -->
+            <div>
+                <h2 class="text-sm font-bold text-white">
+                    <span class="inline-block border-b-2 border-cyan-500 pb-2">Company</span>
+                </h2>
+                <ul class="mt-5 space-y-3 text-sm">
+                    <li><a href="#process" class="transition hover:text-cyan-300">About Us</a></li>
+                    <li><a href="#home" class="transition hover:text-cyan-300">Our Team</a></li>
+                    <li><a href="#before-after" class="transition hover:text-cyan-300">Projects</a></li>
+                    <li><a href="#faq" class="transition hover:text-cyan-300">Warranty Policy</a></li>
+                    <li><a href="#contact" class="transition hover:text-cyan-300">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div>
+                <h2 class="text-sm font-bold text-white">
+                    <span class="inline-block border-b-2 border-cyan-500 pb-2">Support</span>
+                </h2>
+                <ul class="mt-5 space-y-3 text-sm">
+                    <li><a href="#contact" class="transition hover:text-cyan-300">Contact Us</a></li>
+                    <li><a href="#contact" class="transition hover:text-cyan-300">Free Inspection</a></li>
+                    <li><a href="#faq" class="transition hover:text-cyan-300">FAQs</a></li>
+                    <li><a href="#faq" class="transition hover:text-cyan-300">Warranty Claims</a></li>
+                    <li><a href="#contact" class="transition hover:text-cyan-300">Blog</a></li>
+                </ul>
             </div>
         </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section bg-light">
-        <div class="container">
-            <div class="section-header center">
-                <span class="subtitle">Our Expertise</span>
-                <h2 class="section-title">Professional Services</h2>
-                <p>Comprehensive solutions for every type of water leakage problem</p>
-            </div>
-
-            <div class="services-grid">
-                <!-- Service Cards -->
-                <div class="service-card">
-                    <div class="icon-wrapper"><ion-icon name="home-outline"></ion-icon></div>
-                    <h3>Terrace Waterproofing</h3>
-                    <p>Complete terrace waterproofing with multi-layer protection against rain and water seepage.</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon-wrapper"><ion-icon name="git-network-outline"></ion-icon></div>
-                    <h3>Roof & Wall Crack Repair</h3>
-                    <p>Expert crack filling and sealing for roofs and walls to prevent water infiltration.</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon-wrapper"><ion-icon name="snow-outline"></ion-icon></div>
-                    <h3>Terrace Cool Coating</h3>
-                    <p>Heat-reflective cool coating that reduces temperature and protects your terrace surface.</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon-wrapper"><ion-icon name="water-outline"></ion-icon></div>
-                    <h3>Water Tank Repair</h3>
-                    <p>Specialized waterproofing for overhead and underground water tanks.</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon-wrapper"><ion-icon name="apps-outline"></ion-icon></div>
-                    <h3>Bathroom Tiles Epoxy</h3>
-                    <p>Waterproof epoxy treatment for bathroom tiles and joints without tile removal.</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon-wrapper"><ion-icon name="arrow-down-outline"></ion-icon></div>
-                    <h3>Ceiling Injection</h3>
-                    <p>Advanced injection grouting technique to stop active ceiling leaks permanently.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="section">
-        <div class="container">
-            <div class="section-header center">
-                <span class="subtitle">How It Works</span>
-                <h2 class="section-title">Transparent 5-Step Process</h2>
-                <p>Simple process — from inspection to warranty</p>
-            </div>
-
-            <div class="process-timeline">
-                <div class="process-step">
-                    <div class="step-num">01</div>
-                    <h3>Free Site Inspection</h3>
-                    <p>Our expert visits your property, identifies leakage points, and gives a detailed assessment completely free.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-num">02</div>
-                    <h3>Custom Quote</h3>
-                    <p>Detailed quotation with material specs, timeline, and warranty terms. No hidden costs.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-num">03</div>
-                    <h3>Surface Prep</h3>
-                    <p>We clean, treat cracks, and apply primer. Proper preparation is our secret to success.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-num">04</div>
-                    <h3>Multi-Layer Coating</h3>
-                    <p>3 to 7 layers of premium waterproofing applied with strict drying times between coats.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-num">05</div>
-                    <h3>Quality Check</h3>
-                    <p>Final water-test verifies zero leakage. Written warranty certificate up to 10 years is handed over.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Packages Section -->
-    <section id="pricing" class="section bg-light">
-        <div class="container">
-            <div class="section-header center">
-                <span class="subtitle">Pricing</span>
-                <h2 class="section-title">Choose Your Protection Plan</h2>
-                <p>Transparent pricing with guaranteed warranty protection</p>
-            </div>
-
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Standard</h3>
-                    <div class="price">3 Year <span>Warranty</span></div>
-                    <ul class="pricing-features">
-                        <li><ion-icon name="checkmark"></ion-icon> Surface prep & cleaning</li>
-                        <li><ion-icon name="checkmark"></ion-icon> 4 layer waterproof coating</li>
-                        <li><ion-icon name="checkmark"></ion-icon> Crack filling treatment</li>
-                        <li><ion-icon name="checkmark"></ion-icon> Quality materials used</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline btn-full">Get Quote</a>
-                </div>
-                <div class="pricing-card popular">
-                    <div class="popular-badge">Most Chosen</div>
-                    <h3>Premium</h3>
-                    <div class="price">5 Year <span>Warranty</span></div>
-                    <ul class="pricing-features">
-                        <li><ion-icon name="checkmark"></ion-icon> Deep surface preparation</li>
-                        <li><ion-icon name="checkmark"></ion-icon> 6 layer waterproof coating</li>
-                        <li><ion-icon name="checkmark"></ion-icon> Advanced crack treatment</li>
-                        <li><ion-icon name="checkmark"></ion-icon> Premium grade materials</li>
-                        <li><ion-icon name="checkmark"></ion-icon> Free annual inspection</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary btn-full">Get Quote</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Ultimate</h3>
-                    <div class="price">10 Year <span>Warranty</span></div>
-                    <ul class="pricing-features">
-                        <li><ion-icon name="checkmark"></ion-icon> Complete surface overhaul</li>
-                        <li><ion-icon name="checkmark"></ion-icon> 9 layer premium coating</li>
-                        <li><ion-icon name="checkmark"></ion-icon> Full crack & joint treatment</li>
-                        <li><ion-icon name="checkmark"></ion-icon> Top-tier imported materials</li>
-                        <li><ion-icon name="checkmark"></ion-icon> Priority support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline btn-full">Get Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Calculator Section -->
-    <section id="calculator" class="section">
-        <div class="container calc-container">
-            <div class="calc-text">
-                <h2 class="section-title">Calculate Your Project Cost</h2>
-                <p>Get an instant rough estimate based on your area.</p>
-                <form id="cost-calculator" class="calc-form">
-                    <div class="form-group">
-                        <label for="calc-service">Select Service</label>
-                        <select id="calc-service">
-                            <option value="40">Terrace Waterproofing (Standard)</option>
-                            <option value="55">Terrace Waterproofing (Premium)</option>
-                            <option value="35">Cool Coating Only</option>
-                            <option value="60">Bathroom Epoxy Injection</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="calc-area">Area (Square Feet)</label>
-                        <input type="number" id="calc-area" placeholder="e.g. 1000" min="100">
-                    </div>
-                    <button type="button" id="calc-btn" class="btn btn-primary">Calculate Estimate</button>
-                    
-                    <div id="calc-result" class="calc-result hidden">
-                        <h4>Estimated Cost</h4>
-                        <div class="estimate-value">₹<span id="result-value">0</span></div>
-                        <p class="small-text">*This is a rough estimate. Final cost depends on inspection.</p>
-                        <a href="#contact" class="btn btn-outline btn-small mt-3">Book Free Inspection</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="section bg-light">
-         <div class="container">
-            <div class="section-header center">
-                <h2 class="section-title">Client Feedback</h2>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Our terrace had been leaking for 3 years. These guys fixed it permanently in 2 days. Zero issues since!"</p>
-                    <div class="author">- Rajesh K, Chennai</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Bathroom was leaking to the hall below. They fixed it without breaking a single tile. Very professional!"</p>
-                    <div class="author">- Priya S, Salem</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Best waterproofing service in the city. 6 year warranty gave me full confidence. Highly recommended!"</p>
-                    <div class="author">- Murugan T, Madurai</div>
-                </div>
-            </div>
-         </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="section">
-        <div class="container container-small">
-            <div class="section-header center">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-            </div>
-            
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">How long does terrace waterproofing take? <ion-icon name="add-outline"></ion-icon></button>
-                    <div class="faq-answer">
-                        <p>Terrace waterproofing typically takes 3–5 days depending on the area size and number of layers. We give a specific timeline in the quotation.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Do you need to break tiles for bathroom repair? <ion-icon name="add-outline"></ion-icon></button>
-                    <div class="faq-answer">
-                        <p>No! Our bathroom waterproofing uses advanced epoxy injection and nano-coating techniques that penetrate through existing tiles without removing them.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">How does the 10-year warranty work? <ion-icon name="add-outline"></ion-icon></button>
-                    <div class="faq-answer">
-                        <p>If any leakage occurs during the warranty period due to our work, we repair it completely free of charge. The warranty is also transferable if you sell the property.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Are the chemicals safe for families? <ion-icon name="add-outline"></ion-icon></button>
-                    <div class="faq-answer">
-                        <p>We use ISI-certified, non-toxic waterproofing materials from brands like Dr. Fixit and Fosroc. Complete safety for families and children.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-dark">
-        <div class="container contact-container">
-            <div class="contact-info">
-                <h2 class="section-title text-white">Get Your Free Inspection</h2>
-                <p class="text-light">We serve all 38 districts of Tamil Nadu. Book your free consultation today.</p>
-                
-                <div class="contact-methods">
-                    <div class="method">
-                        <ion-icon name="call"></ion-icon>
-                        <div>
-                            <h4>Call Us Now</h4>
-                            <a href="tel:+918870992280">+91 88709 92280</a>
-                        </div>
-                    </div>
-                    <div class="method">
-                        <ion-icon name="logo-whatsapp"></ion-icon>
-                        <div>
-                            <h4>WhatsApp</h4>
-                            <a href="https://wa.me/918870992280">Chat Instantly</a>
-                        </div>
-                    </div>
-                    <div class="method">
-                        <ion-icon name="mail"></ion-icon>
-                        <div>
-                            <h4>Email Us</h4>
-                            <a href="mailto:suryawaterproof7@gmail.com">suryawaterproof7@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-form-wrapper">
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <select>
-                            <option value="">Select Service Needed</option>
-                            <option value="terrace">Terrace Waterproofing</option>
-                            <option value="bathroom">Bathroom Seepage</option>
-                            <option value="wall">Wall Cracks</option>
-                            <option value="tank">Water Tank Repair</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea rows="4" placeholder="Brief details about the leakage..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-full">Request Free Visit</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">
-                <h3><ion-icon name="water"></ion-icon> LeakCare Solution</h3>
-                <p>India's trusted waterproofing company providing premium leak-proof solutions.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Services</h4>
-                <a href="#services">Terrace Waterproofing</a>
-                <a href="#services">Bathroom Epoxy</a>
-                <a href="#services">Crack Repair</a>
-                <a href="#services">Cool Coating</a>
-            </div>
-            <div class="footer-links">
-                <h4>Company</h4>
-                <a href="#about">About Us</a>
-                <a href="#pricing">Warranty Policy</a>
-                <a href="#faq">FAQs</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2026 LeakCare Waterproof Solution. All rights reserved.</p>
-                <div class="legal-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
+        <div class="relative mx-auto mt-14 w-full max-w-7xl border-t border-slate-800/80 px-4 pt-8 text-center text-xs text-slate-500 sm:px-6 lg:px-8">
+            &copy; 2026 Hitech. All rights reserved.
         </div>
     </footer>
+
+    <!-- Fixed corner actions (always visible while scrolling) -->
+    <a
+        href="tel:+919000012345"
+        class="fab-corner fab-corner--phone fixed z-40 flex h-14 w-14 items-center justify-center rounded-full text-white transition hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-400"
+        aria-label="Call us"
+    >
+        <i data-lucide="phone" class="h-6 w-6" aria-hidden="true"></i>
+    </a>
+    <a
+        href="https://wa.me/919000012345"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="fab-corner fab-corner--whatsapp fixed z-40 flex h-14 w-14 items-center justify-center rounded-full text-white transition hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-400"
+        aria-label="Chat on WhatsApp"
+    >
+        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 20.885 3.49"
+            />
+        </svg>
+    </a>
+
+    <button
+        type="button"
+        id="scrollTopBtn"
+        class="scroll-top-btn fixed bottom-24 right-6 z-[35] flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-cyan-600 text-white shadow-lg shadow-cyan-600/35 transition-all duration-300 hover:scale-105 hover:bg-cyan-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300 sm:bottom-28 sm:right-8"
+        aria-label="Scroll to top"
+        aria-hidden="true"
+    >
+        <i data-lucide="chevron-up" class="h-5 w-5" aria-hidden="true"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
